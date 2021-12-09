@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
 
+    resources :users, only: %i(new create)
+    resources :categories, only: %i(index show)
     resources :products, only: %i(index show)
   end
 end

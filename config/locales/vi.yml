@@ -94,3 +94,5 @@ vi:
     sign_up_now:  " Đăng ký ngay"
     fails: "username/password không hợp lệ"
     success: "Chào mừng bạn đến với trang web đồ ăn và thức uống"
+  category:
+    title: "Danh mục"

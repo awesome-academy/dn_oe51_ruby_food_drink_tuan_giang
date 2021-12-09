@@ -1,8 +1,13 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
+<<<<<<< HEAD
       <%= t "signup.errors.contain" %>
       <%= pluralize @user.errors.count, t("signup.errors.err") %>.
+=======
+      <%= t "the_form_contains" %>
+      <%= pluralize @user.errors.count, t("signup.errors.err") %>
+>>>>>>> update
     </div>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>

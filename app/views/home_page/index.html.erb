@@ -41,47 +41,18 @@
 <section class="category" id="category">
   <h1 class="heading"><%= t(".shop") %> <span><%= t(".categories") %></span></h1>
   <div class="box-container">
-    <div class="box">
-      <h3><%= t(".vegitables") %></h3>
-      <img src="assets/category-1.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
-    <div class="box">
-      <h3><%= t(".juice") %></h3>
-      <img src="assets/category-2.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
-    <div class="box">
-      <h3><%= t(".meat") %></h3>
-      <img src="assets/category-3.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
-    <div class="box">
-      <h3><%= t(".fruite") %></h3>
-      <img src="assets/category-4.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
+    <% @category.each do |cate| %>
+      <% if cate.parent_id.nil? %>
+        <div class="box">
+          <h3><%= cate.name %></h3>
+          <img src="assets/category-1.png" alt="">
+          <%= link_to t(".shop_now"), categories_path(parent_id: cate.id), class: "btn" %>
+        </div>
+      <% end %> 
+    <% end %>
   </div>
 </section>
 
 <!-- product section starts  -->
 
 <%= render "home_page/lastest_product" %>
-
-<!-- contact section starts  -->
-
-<section class="contact" id="contact">
-  <h1 class="heading"> <span><%= t(".contact") %></span> <%= t(".us") %> </h1>
-  <form action="#">
-    <div class="inputBox">
-      <input type="text" placeholder="<%= t(".name") %>">
-      <input type="email" placeholder="<%= t(".email") %>">
-    </div>
-    <div class="inputBox">
-      <input type="number" placeholder="<%= t(".number") %>">
-      <input type="text" placeholder="<%= t(".subject") %>">
-    </div>
-    <textarea placeholder="<%= t(".message") %>" name="" id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="<%= t(".send_message") %>" class="btn">
-  </form>
-</section>
