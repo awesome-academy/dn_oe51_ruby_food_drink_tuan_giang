@@ -10,9 +10,6 @@ class Product < ApplicationRecord
   validates :price, presence: true,
     numericality: {only_decimal: true}
 
-  validates :category, presence: true,
-    numericality: {only_integer: true}
-
   validates :detail, presence: true
 
   private

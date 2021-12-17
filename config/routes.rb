@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     post "/signup", to: "users#create"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
+    get "/product", to: "product#new"
     delete "/logout", to: "sessions#destroy"
+
+    resources :categories, only: %i(index show)
+    resources :products, only: %i(index show)
   end
 end

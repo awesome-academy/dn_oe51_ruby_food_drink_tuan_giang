@@ -63,7 +63,13 @@ en:
       number: "number"
       subject: "subject"
       message: "message"
-      send_message: "Send message"              
+      send_message: "Send message"
+  products:
+    show:
+      price: "Price: "
+      add_to_cart: "Add to cart"
+      buy_now: "Buy now"
+      unit_currency: "$"              
   signup:
     title: "Sign up"
     username: "Username"
@@ -87,3 +93,5 @@ en:
     sign_up_now:  " Sign up now"
     fails: "Invalid username/password combination"
     success: "Welcome to the food and drink website"
+  category:
+    title: "Category"

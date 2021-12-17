@@ -41,26 +41,15 @@
 <section class="category" id="category">
   <h1 class="heading"><%= t(".shop") %> <span><%= t(".categories") %></span></h1>
   <div class="box-container">
-    <div class="box">
-      <h3><%= t(".vegitables") %></h3>
-      <img src="assets/category-1.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
-    <div class="box">
-      <h3><%= t(".juice") %></h3>
-      <img src="assets/category-2.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
-    <div class="box">
-      <h3><%= t(".meat") %></h3>
-      <img src="assets/category-3.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
-    <div class="box">
-      <h3><%= t(".fruite") %></h3>
-      <img src="assets/category-4.png" alt="">
-      <a href="#" class="btn"><%= t(".shop_now") %></a>
-    </div>
+    <% @category.each do |cate| %>
+      <% if cate.parent_id.nil? %>
+        <div class="box">
+          <h3><%= cate.name %></h3>
+          <img src="assets/category-1.png" alt="">
+          <%= link_to t(".shop_now"), categories_path(parent_id: cate.id), class: "btn" %>
+        </div>
+      <% end %> 
+    <% end %>
   </div>
 </section>
 
@@ -69,79 +58,29 @@
 <section class="product" id="product">
   <h1 class="heading"><%= t(".latest") %> <span><%= t(".product") %></span></h1>
   <ul class="box-container">
-    <li class="box">
-        <img src="assets/product-2.png" alt="">
-        <h3><%= t(".tomato") %></h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="price"> <%= t(".money10") %></div>
-        <div class="quantity">
-          <span><%= t(".quantity") %> </span>
-          <input type="number" min="1" max="1000" value="1">
-          <a href="#" class="fas fa-shopping-cart icon_cart"></a>          
-        </div>
-        <a href="#" class="btn"><%= t(".see_details") %></a>
-      </li>
+    <% @products.each do |product| %>
       <li class="box">
-        <img src="assets/product-2.png" alt="">
-        <h3><%= t(".tomato") %></h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="price"> <%= t(".money10") %></div>
-        <div class="quantity">
-          <span><%= t(".quantity") %> </span>
-          <input type="number" min="1" max="1000" value="1">
-          <a href="#" class="fas fa-shopping-cart icon_cart"></a>          
-        </div>
-        <a href="#" class="btn"><%= t(".see_details") %></a>
+          <%= image_tag(product.image) %>
+          <h3><%= product.name %></h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="price"> <%= product.price %></div>
+          <div class="quantity">
+            <span><%= t(".quantity") %> </span>
+            <input type="number" min="1" max="1000" value="1">
+            <a href="#" class="fas fa-shopping-cart icon_cart"></a>
+          </div>
+          <%= link_to t(".see_details"), product_path(id: product.id), class: "btn" %>
       </li>
-      <li class="box">
-        <img src="assets/product-2.png" alt="">
-        <h3><%= t(".tomato") %></h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="price"> <%= t(".money10") %></div>
-        <div class="quantity">
-          <span><%= t(".quantity") %> </span>
-          <input type="number" min="1" max="1000" value="1">
-          <a href="#" class="fas fa-shopping-cart icon_cart"></a>          
-        </div>
-        <a href="#" class="btn"><%= t(".see_details") %></a>
-      </li>
-      <li class="box">
-        <img src="assets/product-2.png" alt="">
-        <h3><%= t(".tomato") %></h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
-        <div class="price"> <%= t(".money10") %></div>
-        <div class="quantity">
-          <span><%= t(".quantity") %> </span>
-          <input type="number" min="1" max="1000" value="1">
-          <a href="#" class="fas fa-shopping-cart icon_cart"></a>          
-        </div>
-        <a href="#" class="btn"><%= t(".see_details") %></a>
-      </li>      
-    </ul>
+    <% end %>
+  </ul>
+  <div class="paginate">
+    <%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </section>
 
