@@ -5,12 +5,12 @@
   </div>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <%= form_for(@user) do |f| %>
+      <%= form_for(@user, url: signup_path) do |f| %>
         <%= render "shared/error_messages" %>
-        <%= f.label :userName, t("signup.username") %>
-        <%= f.text_field :userName %>
-        <%= f.label :fullName, t("signup.fullname") %>
-        <%= f.text_field :fullName %>
+        <%= f.label :user_name, t("signup.username") %>
+        <%= f.text_field :user_name %>
+        <%= f.label :full_name, t("signup.fullname") %>
+        <%= f.text_field :full_name %>
         <%= f.label :email, t("signup.email") %>
         <%= f.email_field :email %>
         <%= f.label :password, t("signup.password") %>

@@ -2,17 +2,17 @@
   <div class="header-1">
     <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Food and Drink</a>
     <form action="" class="search-box-container">
-      <input type="search" id="search-box" placeholder="<%= t("app.views.header.search") %>">
+      <input type="search" id="search-box" placeholder="<%= t(".search") %>">
       <label for="search-box"><i class="fa fa-search search" aria-hidden="true"></i></label>
     </form>
   </div>
 
   <div class="header-2">
     <nav class="navbar">
-      <a href="#home"><%= t("app.views.header.home") %></a>
-      <a href="#category"><%= t("app.views.header.category") %></a>
-      <a href="#product"><%= t("app.views.header.product") %></a>
-      <a href="#contact"><%= t("app.views.header.contact") %></a>
+      <a href="#home"><%= t(".home") %></a>
+      <a href="#category"><%= t(".category") %></a>
+      <a href="#product"><%= t(".product") %></a>
+      <a href="#contact"><%= t(".contact") %></a>
     </nav>
     <% if logged_in? %>
       <ul class="icons">
@@ -32,7 +32,7 @@
               </li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("nav.logout"), logout_path, method: :delete %>
+                <%= link_to t(".logout"), logout_path, method: :delete %>
               </li>
             </ul>
         </li>
@@ -48,7 +48,7 @@
               </li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("nav.login"), login_path %>
+                <%= link_to t(".login"), login_path %>
               </li>
             </ul>
         </li>
