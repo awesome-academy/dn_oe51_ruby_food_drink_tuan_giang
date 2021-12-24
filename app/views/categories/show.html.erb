@@ -1,0 +1,48 @@
+<div class="app_container">
+  <div class="grid">
+    <div class="grid_column-2">
+      <nav class="category">
+        <h3 class="category_heading">
+          <i class="category_heading-icon fas fa-list"></i>
+          <%= t("category.title") %>
+        </h3>
+        <ul class="category-list">
+          <% @categories.each do |item| %>
+            <li>
+              <%= link_to item.name, category_path(item, parent_id: params[:parent_id]) %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="grid_column-10">
+      <div class="home-product">
+        <div class="grid_row">
+          <% @products.each do |n| %>
+            <div class="grid_column-2-4">
+              <%= image_tag n.image, class: "img_product" %>
+              <div class="home-product-item">
+                <h3 class="home-product-item_name"><%= n.name %></h3>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> <%= n.price %></div>
+                <div class="quantity">
+                  <span><%= t("app.views.home.quantity") %> </span>
+                  <input class="input_product" type="number" min="1" max="1000" value="1">
+                  <a href="#" class="fas fa-shopping-cart icon_cart"></a>
+                </div>
+                <%= link_to t(".see_details"), product_path(id: n.id), class: "btn" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
