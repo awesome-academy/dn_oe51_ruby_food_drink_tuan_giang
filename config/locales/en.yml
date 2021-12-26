@@ -94,3 +94,5 @@ en:
     sign_up_now:  " Sign up now"
     fails: "Invalid username/password combination"
     success: "Welcome to the food and drink website"
+  category:
+    title: "Category"
